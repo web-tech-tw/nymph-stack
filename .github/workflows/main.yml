@@ -13,7 +13,7 @@ jobs:
         env:
           WEBHOOK_URL: ${{ vars.NYMPH_WEBHOOK_URL_STACK_UP }}
           WEBHOOK_SECRET: ${{ secrets._WEBHOOK_SECRET_STACK_UP }}
-        run: >-
+        run: >
           curl --fail-with-body \
             -X POST \
             -H "X-Nymph-Stack-Secret: $WEBHOOK_SECRET" \
