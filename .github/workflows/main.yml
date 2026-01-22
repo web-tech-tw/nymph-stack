@@ -15,4 +15,4 @@ jobs:
           WEBHOOK_SECRET: ${{ secrets._WEBHOOK_SECRET_STACK_UP }}
         run: |
           ENV_JSON='{"secret":"'$WEBHOOK_SECRET'","env":'$(echo '${{ toJSON(secrets) }}')'}'
-          curl -X POST -H "Content-Type: application/json" -d "$ENV_JSON" "$WEBHOOK_URL"
+          curl --fail-with-body -X POST -H "Content-Type: application/json" -d "$ENV_JSON" "$WEBHOOK_URL"
