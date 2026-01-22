@@ -8,8 +8,8 @@
       type: value
       value: ${_WEBHOOK_SECRET_STACK_UP}
       parameter:
-        source: payload
-        name: secret
+        source: header
+        name: X-Nymph-Stack-Secret
 
 - id: stack-down
   command-working-directory: "/srv"
@@ -21,8 +21,8 @@
       type: value
       value: ${_WEBHOOK_SECRET_STACK_DOWN}
       parameter:
-        source: payload
-        name: secret
+        source: header
+        name: X-Nymph-Stack-Secret
 
 - id: part-up
   command-working-directory: "/srv"
@@ -34,8 +34,8 @@
       type: value
       value: ${_WEBHOOK_SECRET_PART_UP}
       parameter:
-        source: payload
-        name: secret
+        source: header
+        name: X-Nymph-Stack-Secret
 
 - id: part-down
   command-working-directory: "/srv"
@@ -47,5 +47,5 @@
       type: value
       value: ${_WEBHOOK_SECRET_PART_DOWN}
       parameter:
-        source: payload
-        name: secret
+        source: header
+        name: X-Nymph-Stack-Secret
