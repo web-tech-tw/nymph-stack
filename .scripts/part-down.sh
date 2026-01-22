@@ -9,7 +9,7 @@ if [ ! -n "$1" ]; then
 fi
 
 # Assign to directory variable
-dir="$1"
+dir="$(echo "$1" | jq -r '.path')/"
 
 # Skip certain directories
 if [ "$dir" == ".scripts/" ]; then
