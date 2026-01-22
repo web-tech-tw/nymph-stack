@@ -19,5 +19,5 @@ jobs:
             -X POST \
             -H "X-Nymph-Stack-Secret: $WEBHOOK_SECRET" \
             -H "Content-Type: application/json" \
-            -d "[$WEBHOOK_PAYLOAD]" \
+            -d "$WEBHOOK_PAYLOAD" \
             "$WEBHOOK_URL"
