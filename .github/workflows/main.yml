@@ -15,8 +15,7 @@ jobs:
           WEBHOOK_SECRET: ${{ secrets._WEBHOOK_SECRET_STACK_UP }}
           WEBHOOK_PAYLOAD: ${{ toJSON(secrets) }}
         run: |
-          curl --fail-with-body \
-            -X POST \
+          curl --silent --show-error --fail -X POST \
             -H "X-Nymph-Stack-Secret: $WEBHOOK_SECRET" \
             -H "Content-Type: application/json" \
             -d "$WEBHOOK_PAYLOAD" \
