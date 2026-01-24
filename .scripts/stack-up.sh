@@ -25,11 +25,18 @@ for dir in */; do
   # Navigate into the directory
   cd "$dir"
 
+  # Generate .env file from template using envsubst
+  if [ -f ".env.tmpl" ]; then
+    envsubst <.env.tmpl >.env
+  else
+    echo "No dotenv template found in $dir"
+  fi
+
   # Generate config.env file from template using envsubst
   if [ -f "config.env.tmpl" ]; then
     envsubst <config.env.tmpl >config.env
   else
-    echo "No environment template found in $dir"
+    echo "No confenv template found in $dir"
   fi
 
   # Run init.sh if needed and track its state
