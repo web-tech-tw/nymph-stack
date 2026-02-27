@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   web:
-    image: caddy:2
+    image: ghcr.io/web-tech-tw/chew:main
     networks:
       - nymph-stack
     labels:
