@@ -13,7 +13,7 @@ services:
       - "traefik.http.services.chew-inte.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.chew-inte.middlewares=chew-inte-strip-prefix"
       - "traefik.http.middlewares.chew-inte-strip-prefix.stripprefix.prefixes=/chew"
-    restart: always
+    restart: unless-stopped
 
   recv:
     image: ghcr.io/web-tech-tw/chew.recv:main
@@ -36,7 +36,7 @@ services:
       - "traefik.http.services.chew-recv.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.chew-recv.middlewares=chew-recv-strip-prefix"
       - "traefik.http.middlewares.chew-recv-strip-prefix.stripprefix.prefixes=/recv/chew"
-    restart: always
+    restart: unless-stopped
 
 networks:
   sara:

@@ -13,7 +13,7 @@ services:
       - "traefik.http.services.freya-inte.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.freya-inte.middlewares=freya-inte-strip-prefix"
       - "traefik.http.middlewares.freya-inte-strip-prefix.stripprefix.prefixes=/freya"
-    restart: always
+    restart: unless-stopped
 
   recv:
     image: ghcr.io/web-tech-tw/freya.recv:main
@@ -36,7 +36,7 @@ services:
       - "traefik.http.services.freya-recv.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.freya-recv.middlewares=freya-recv-strip-prefix"
       - "traefik.http.middlewares.freya-recv-strip-prefix.stripprefix.prefixes=/recv/freya"
-    restart: always
+    restart: unless-stopped
 
 networks:
   sara:

@@ -13,7 +13,7 @@ services:
       - "traefik.http.services.sara-inte.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.sara-inte.middlewares=sara-inte-strip-prefix"
       - "traefik.http.middlewares.sara-inte-strip-prefix.stripprefix.prefixes=/sara"
-    restart: always
+    restart: unless-stopped
 
   recv:
     image: ghcr.io/web-tech-tw/sara.recv:main
@@ -37,7 +37,7 @@ services:
       - "traefik.http.services.sara-recv.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.sara-recv.middlewares=sara-recv-strip-prefix"
       - "traefik.http.middlewares.sara-recv-strip-prefix.stripprefix.prefixes=/recv/sara"
-    restart: always
+    restart: unless-stopped
 
 networks:
   sara:

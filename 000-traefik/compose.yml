@@ -10,7 +10,7 @@ services:
       - 127.0.0.1:13006:13006
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    restart: always
+    restart: unless-stopped
 
 networks:
   nymph-stack:

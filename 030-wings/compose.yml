@@ -14,7 +14,7 @@ services:
       - "traefik.http.services.wings.loadbalancer.server.port=3000"
       - "traefik.http.services.wings.loadbalancer.healthcheck.path=/wings/api/healthz"
       - "traefik.http.services.wings.loadbalancer.healthcheck.interval=30s"
-    restart: always
+    restart: unless-stopped
 
 networks:
   nymph-stack:

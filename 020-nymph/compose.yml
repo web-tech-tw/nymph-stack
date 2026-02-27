@@ -23,10 +23,10 @@ services:
       - "traefik.http.services.nymph.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.nymph.middlewares=nymph-strip-prefix"
       - "traefik.http.middlewares.nymph-strip-prefix.stripprefix.prefixes=/nymph"
-    restart: always
+    restart: unless-stopped
   redis:
     image: redis:latest
-    restart: always
+    restart: unless-stopped
 
 networks:
   nymph-stack:

@@ -14,4 +14,4 @@ services:
       - "traefik.http.services.ironnect.loadbalancer.server.port=8000"
       - "traefik.http.services.ironnect.loadbalancer.healthcheck.path=/recv/openai"
       - "traefik.http.services.ironnect.loadbalancer.healthcheck.interval=30s"
-    restart: always
+    restart: unless-stopped

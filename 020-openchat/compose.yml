@@ -13,7 +13,7 @@ services:
       - "traefik.http.services.openchat.loadbalancer.server.port=3000"
       - "traefik.http.services.openchat.loadbalancer.healthcheck.path=/openchat/api/healthz"
       - "traefik.http.services.openchat.loadbalancer.healthcheck.interval=30s"
-    restart: always
+    restart: unless-stopped
 
   recv:
     image: ghcr.io/web-tech-tw/openchat-join:main
@@ -37,7 +37,7 @@ services:
       - "traefik.http.services.openchat-recv.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.openchat-recv.middlewares=openchat-recv-strip-prefix"
       - "traefik.http.middlewares.openchat-recv-strip-prefix.stripprefix.prefixes=/recv/openchat"
-    restart: always
+    restart: unless-stopped
 
 networks:
   sara:
