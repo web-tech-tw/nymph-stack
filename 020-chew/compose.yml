@@ -17,7 +17,6 @@ services:
 
   recv:
     image: ghcr.io/web-tech-tw/chew.recv:main
-    container_name: chew-recv
     environment:
       APP_CONFIGURED: "1"
     env_file:

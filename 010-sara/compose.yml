@@ -17,7 +17,6 @@ services:
 
   recv:
     image: ghcr.io/web-tech-tw/sara.recv:main
-    container_name: sara-recv
     environment:
       APP_CONFIGURED: "1"
     env_file:

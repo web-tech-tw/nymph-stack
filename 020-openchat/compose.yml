@@ -17,7 +17,6 @@ services:
 
   recv:
     image: ghcr.io/web-tech-tw/openchat-join:main
-    container_name: openchat-recv
     environment:
       APP_CONFIGURED: "1"
     env_file:
