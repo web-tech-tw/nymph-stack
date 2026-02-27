@@ -11,6 +11,8 @@ services:
       - "traefik.http.services.sara.loadbalancer.server.port=80"
       - "traefik.http.services.sara.loadbalancer.healthcheck.path=/"
       - "traefik.http.services.sara.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.sara.middlewares=sara-strip-prefix"
+      - "traefik.http.middlewares.sara-strip-prefix.stripprefix.prefixes=/sara"
     restart: always
 
   recv:

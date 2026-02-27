@@ -11,6 +11,8 @@ services:
       - "traefik.http.services.chew.loadbalancer.server.port=80"
       - "traefik.http.services.chew.loadbalancer.healthcheck.path=/"
       - "traefik.http.services.chew.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.chew.middlewares=chew-strip-prefix"
+      - "traefik.http.middlewares.chew-strip-prefix.stripprefix.prefixes=/chew"
     restart: always
 
   recv:
