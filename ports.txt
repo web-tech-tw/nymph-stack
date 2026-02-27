@@ -1,7 +1,4 @@
 13005 => traefik
 13010 => nymph
-13020 => sara.recv
-13030 => openchat.recv
-13040 => chew.recv
 13050 => openai
 13051 => openai-custom

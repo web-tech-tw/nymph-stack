@@ -1,18 +1,18 @@
 version: "3.5"
 services:
-  web:
+  inte:
     image: ghcr.io/web-tech-tw/sara:main
     networks:
       - nymph-stack
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
-      - "traefik.http.routers.sara.rule=PathPrefix(`/sara`)"
-      - "traefik.http.services.sara.loadbalancer.server.port=80"
-      - "traefik.http.services.sara.loadbalancer.healthcheck.path=/"
-      - "traefik.http.services.sara.loadbalancer.healthcheck.interval=30s"
-      - "traefik.http.routers.sara.middlewares=sara-strip-prefix"
-      - "traefik.http.middlewares.sara-strip-prefix.stripprefix.prefixes=/sara"
+      - "traefik.http.routers.sara-inte.rule=PathPrefix(`/sara`)"
+      - "traefik.http.services.sara-inte.loadbalancer.server.port=80"
+      - "traefik.http.services.sara-inte.loadbalancer.healthcheck.path=/"
+      - "traefik.http.services.sara-inte.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.sara-inte.middlewares=sara-inte-strip-prefix"
+      - "traefik.http.middlewares.sara-inte-strip-prefix.stripprefix.prefixes=/sara"
     restart: always
 
   recv:
@@ -24,11 +24,18 @@ services:
       - config.env
     networks:
       - sara
-    ports:
-      - 127.0.0.1:13020:3000
     volumes:
        - ./keypair_public.pem:/workplace/keypair_public.pem:ro
        - ./keypair_private.pem:/workplace/keypair_private.pem:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.group=nymph-stack"
+      - "traefik.http.routers.sara-recv.rule=PathPrefix(`/recv/sara`)"
+      - "traefik.http.services.sara-recv.loadbalancer.server.port=3000"
+      - "traefik.http.services.sara-recv.loadbalancer.healthcheck.path=/robots.txt"
+      - "traefik.http.services.sara-recv.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.sara-recv.middlewares=sara-recv-strip-prefix"
+      - "traefik.http.middlewares.sara-recv-strip-prefix.stripprefix.prefixes=/recv/sara"
     restart: always
 
 networks:

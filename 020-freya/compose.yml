@@ -1,18 +1,18 @@
 version: "3.5"
 services:
-  web:
+  inte:
     image: ghcr.io/web-tech-tw/freya:main
     networks:
       - nymph-stack
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
-      - "traefik.http.routers.freya.rule=PathPrefix(`/freya`)"
-      - "traefik.http.services.freya.loadbalancer.server.port=80"
-      - "traefik.http.services.freya.loadbalancer.healthcheck.path=/"
-      - "traefik.http.services.freya.loadbalancer.healthcheck.interval=30s"
-      - "traefik.http.routers.freya.middlewares=freya-strip-prefix"
-      - "traefik.http.middlewares.freya-strip-prefix.stripprefix.prefixes=/freya"
+      - "traefik.http.routers.freya-inte.rule=PathPrefix(`/freya`)"
+      - "traefik.http.services.freya-inte.loadbalancer.server.port=80"
+      - "traefik.http.services.freya-inte.loadbalancer.healthcheck.path=/"
+      - "traefik.http.services.freya-inte.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.freya-inte.middlewares=freya-inte-strip-prefix"
+      - "traefik.http.middlewares.freya-inte-strip-prefix.stripprefix.prefixes=/freya"
     restart: always
 
   recv:
@@ -24,10 +24,17 @@ services:
       - config.env
     networks:
       - sara
-    ports:
-      - 127.0.0.1:13060:3000
     volumes:
       - ../010-sara/keypair_public.pem:/workplace/keypair_public.pem:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.group=nymph-stack"
+      - "traefik.http.routers.freya-recv.rule=PathPrefix(`/recv/freya`)"
+      - "traefik.http.services.freya-recv.loadbalancer.server.port=3000"
+      - "traefik.http.services.freya-recv.loadbalancer.healthcheck.path=/robots.txt"
+      - "traefik.http.services.freya-recv.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.freya-recv.middlewares=freya-recv-strip-prefix"
+      - "traefik.http.middlewares.freya-recv-strip-prefix.stripprefix.prefixes=/recv/freya"
     restart: always
 
 networks:

@@ -1,18 +1,18 @@
 version: "3.5"
 services:
-  web:
+  inte:
     image: ghcr.io/web-tech-tw/chew:main
     networks:
       - nymph-stack
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
-      - "traefik.http.routers.chew.rule=PathPrefix(`/chew`)"
-      - "traefik.http.services.chew.loadbalancer.server.port=80"
-      - "traefik.http.services.chew.loadbalancer.healthcheck.path=/"
-      - "traefik.http.services.chew.loadbalancer.healthcheck.interval=30s"
-      - "traefik.http.routers.chew.middlewares=chew-strip-prefix"
-      - "traefik.http.middlewares.chew-strip-prefix.stripprefix.prefixes=/chew"
+      - "traefik.http.routers.chew-inte.rule=PathPrefix(`/chew`)"
+      - "traefik.http.services.chew-inte.loadbalancer.server.port=80"
+      - "traefik.http.services.chew-inte.loadbalancer.healthcheck.path=/"
+      - "traefik.http.services.chew-inte.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.chew-inte.middlewares=chew-inte-strip-prefix"
+      - "traefik.http.middlewares.chew-inte-strip-prefix.stripprefix.prefixes=/chew"
     restart: always
 
   recv:
@@ -24,10 +24,17 @@ services:
       - config.env
     networks:
       - sara
-    ports:
-      - 127.0.0.1:13040:3000
     volumes:
       - ../010-sara/keypair_public.pem:/workplace/keypair_public.pem:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.group=nymph-stack"
+      - "traefik.http.routers.chew-recv.rule=PathPrefix(`/recv/chew`)"
+      - "traefik.http.services.chew-recv.loadbalancer.server.port=3000"
+      - "traefik.http.services.chew-recv.loadbalancer.healthcheck.path=/robots.txt"
+      - "traefik.http.services.chew-recv.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.chew-recv.middlewares=chew-recv-strip-prefix"
+      - "traefik.http.middlewares.chew-recv-strip-prefix.stripprefix.prefixes=/recv/chew"
     restart: always
 
 networks:

@@ -24,11 +24,18 @@ services:
       - config.env
     networks:
       - sara
-    ports:
-      - 127.0.0.1:13030:3000
     volumes:
       - ../010-sara/keypair_public.pem:/workplace/keypair_public.pem:ro
       - ./secret.key:/workplace/secret.key:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.group=nymph-stack"
+      - "traefik.http.routers.openchat-recv.rule=PathPrefix(`/recv/openchat`)"
+      - "traefik.http.services.openchat-recv.loadbalancer.server.port=3000"
+      - "traefik.http.services.openchat-recv.loadbalancer.healthcheck.path=/robots.txt"
+      - "traefik.http.services.openchat-recv.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.openchat-recv.middlewares=openchat-recv-strip-prefix"
+      - "traefik.http.middlewares.openchat-recv-strip-prefix.stripprefix.prefixes=/recv/openchat"
     restart: always
 
 networks:
