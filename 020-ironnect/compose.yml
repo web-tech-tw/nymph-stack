@@ -7,6 +7,11 @@ services:
       SCRIPT_NAME: "/recv/openai"
     volumes:
       - "./config.py:/workplace/config.local.py:ro"
-    ports:
-      - "127.0.0.1:13050:8000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.group=nymph-stack"
+      - "traefik.http.routers.ironnect.rule=PathPrefix(`/recv/openai`)"
+      - "traefik.http.services.ironnect.loadbalancer.server.port=8000"
+      - "traefik.http.services.ironnect.loadbalancer.healthcheck.path=/recv/openai"
+      - "traefik.http.services.ironnect.loadbalancer.healthcheck.interval=30s"
     restart: always

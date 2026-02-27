@@ -12,8 +12,15 @@ services:
       - ./relay.json:/workplace/relay.json:ro
       - ./roles.json:/workplace/roles.json:ro
       - ./data:/workplace/data:rw
-    ports:
-      - 127.0.0.1:13010:3000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.group=nymph-stack"
+      - "traefik.http.routers.nymph.rule=PathPrefix(`/nymph`)"
+      - "traefik.http.services.nymph.loadbalancer.server.port=3000"
+      - "traefik.http.services.nymph.loadbalancer.healthcheck.path=/robots.txt"
+      - "traefik.http.services.nymph.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.nymph.middlewares=nymph-strip-prefix"
+      - "traefik.http.middlewares.nymph-strip-prefix.stripprefix.prefixes=/nymph"
     restart: always
   redis:
     image: redis:latest
