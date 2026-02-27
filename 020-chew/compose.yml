@@ -24,6 +24,7 @@ services:
       - config.env
     networks:
       - sara
+      - nymph-stack
     volumes:
       - ../010-sara/keypair_public.pem:/workplace/keypair_public.pem:ro
     labels:
