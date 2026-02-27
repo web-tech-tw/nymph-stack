@@ -5,7 +5,7 @@ api:
 
 entryPoints:
   web:
-    address: "13005"
+    address: ":13005"
     forwardedHeaders:
       trustedIPs:
         - "172.16.0.0/12"
