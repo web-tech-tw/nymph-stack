@@ -4,6 +4,8 @@ services:
     image: ghcr.io/ai-tech-tw/ironnect:main
     environment:
       SCRIPT_NAME: "/recv/openai"
+    networks:
+      - nymph-stack
     volumes:
       - "./config.py:/workplace/config.local.py:ro"
     labels:
@@ -14,3 +16,8 @@ services:
       - "traefik.http.services.ironnect.loadbalancer.healthcheck.path=/recv/openai/"
       - "traefik.http.services.ironnect.loadbalancer.healthcheck.interval=30s"
     restart: unless-stopped
+
+networks:
+  nymph-stack:
+    external:
+      name: nymph-stack
