@@ -7,3 +7,7 @@ set -e
 
 # Clean up unused Docker resources
 docker image prune -af --filter "until=2h"
+
+# Notify the user that the cleanup is complete
+STATUS="Docker cleanup completed"
+exec /srv/.scripts/notify.sh "$STATUS"
