@@ -61,3 +61,7 @@ for dir in */; do
   # Navigate back to the parent directory
   cd ..
 done
+
+# Notify the user that the stack is up
+STATUS="Stack is up and running"
+exec /srv/.scripts/notify.sh "$STATUS"

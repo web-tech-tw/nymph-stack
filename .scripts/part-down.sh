@@ -29,3 +29,7 @@ if [ -f "compose.yml" ]; then
 else
   echo "No compose.yml found in $dir, nothing to bring down."
 fi
+
+# Notify the user that the part is down
+STATUS="Part $dir has been taken down"
+exec /srv/.scripts/notify.sh "$STATUS"

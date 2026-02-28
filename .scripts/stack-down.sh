@@ -30,3 +30,7 @@ ls -d */ | sort -r | while IFS= read -r dir; do
   # Navigate back to the parent directory
   cd ..
 done
+
+# Notify the user that the stack is down
+STATUS="Stack has been taken down"
+exec /srv/.scripts/notify.sh "$STATUS"

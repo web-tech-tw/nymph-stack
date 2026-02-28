@@ -43,3 +43,7 @@ if [ -f "compose.yml" ]; then
 else
   echo "No compose.yml found in $dir, nothing to bring up."
 fi
+
+# Notify the user that the part is up
+STATUS="Part $dir is up and running"
+exec /srv/.scripts/notify.sh "$STATUS"

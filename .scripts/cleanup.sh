@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 # Cleanup unused Docker resource daily
-# 0 3 * * * sh /srv/.scripts/cleanup.sh >/dev/null 2>&1
+# 0 3 * * * /srv/.scripts/cleanup.sh >/dev/null 2>&1
 
 # Exit on error
 set -e
