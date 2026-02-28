@@ -5,7 +5,7 @@ set -e
 
 WEBHOOK_URLS_TXT="${WEBHOOK_URLS_TXT:-"/srv/.scripts/notify.txt"}"
 if [ ! -f "$WEBHOOK_URLS_TXT" ]; then
-    echo "Webhook URLs file "$WEBHOOK_URLS_TXT" does not exist. Skipping notifications."
+    echo "Webhook URLs file \"$WEBHOOK_URLS_TXT\" does not exist. Skipping notifications."
     exit 0
 fi
 
