@@ -45,5 +45,5 @@ else
 fi
 
 # Notify the user that the part is up
-STATUS="Part $dir is up and running"
-exec /srv/.scripts/notify.sh "$STATUS"
+STATUS="Part $dir is up and running" \
+  /srv/.scripts/notify.sh

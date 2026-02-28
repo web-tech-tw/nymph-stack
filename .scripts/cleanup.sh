@@ -9,5 +9,5 @@ set -e
 docker image prune -af --filter "until=2h"
 
 # Notify the user that the cleanup is complete
-STATUS="Docker cleanup completed"
-exec /srv/.scripts/notify.sh "$STATUS"
+STATUS="Docker cleanup completed" \
+  /srv/.scripts/notify.sh

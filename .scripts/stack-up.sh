@@ -63,5 +63,5 @@ for dir in */; do
 done
 
 # Notify the user that the stack is up
-STATUS="Stack is up and running"
-exec /srv/.scripts/notify.sh "$STATUS"
+STATUS="Stack is up and running" \
+  /srv/.scripts/notify.sh

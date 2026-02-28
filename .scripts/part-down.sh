@@ -31,5 +31,5 @@ else
 fi
 
 # Notify the user that the part is down
-STATUS="Part $dir has been taken down"
-exec /srv/.scripts/notify.sh "$STATUS"
+STATUS="Part $dir has been taken down" \
+  /srv/.scripts/notify.sh

@@ -32,5 +32,5 @@ ls -d */ | sort -r | while IFS= read -r dir; do
 done
 
 # Notify the user that the stack is down
-STATUS="Stack has been taken down"
-exec /srv/.scripts/notify.sh "$STATUS"
+STATUS="Stack has been taken down" \
+  /srv/.scripts/notify.sh
