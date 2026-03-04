@@ -3,5 +3,5 @@
 set -e
 
 envsubst \
-    <"config.py.tmpl" \
+    <"config.local.py.tmpl" \
     >"config.local.py"
