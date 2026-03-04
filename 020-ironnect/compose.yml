@@ -8,6 +8,7 @@ services:
       - nymph-stack
     volumes:
       - "./config.local.py:/workplace/config.local.py:ro"
+      - "./models:/workplace/models:rw"
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
