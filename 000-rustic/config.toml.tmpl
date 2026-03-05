@@ -1,0 +1,15 @@
+[repository]
+repository = "opendal:gdrive"
+refresh_token = "$RUSTIC_GDRIVE_OAUTH_REFRESH_TOKEN"
+client_id = "$RUSTIC_GDRIVE_OAUTH_CLIENT_ID"
+client_secret = "$RUSTIC_GDRIVE_OAUTH_CLIENT_SECRET"
+password = "$RUSTIC_PASSWORD"
+
+[forget]
+keep-daily = 14
+keep-weekly = 5
+
+[[backup.snapshots]]
+label = "riccia"
+sources = ["/srv/riccia"]
+git-ignore = true

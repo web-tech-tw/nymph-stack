@@ -1,0 +1,8 @@
+version: "3.5"
+services:
+  rustic:
+    build:
+      context: ./rustic
+    volumes:
+      - ./config.toml:/etc/rustic/rustic.toml:ro
+    restart: unless-stopped
