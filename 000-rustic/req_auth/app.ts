@@ -4,22 +4,22 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 // 載入 .env
 process.loadEnvFile();
 
-const PORT = Number(process.env.PORT ?? 9004);
-const CLIENT_ID = process.env.CLIENT_ID ?? "";
-const CLIENT_SECRET = process.env.CLIENT_SECRET ?? "";
-const SCOPE = process.env.SCOPE ?? "";
-const REDIRECT_URI = `http://127.0.0.1:${PORT}`;
+const HTTP_PORT = Number(process.env.HTTP_PORT ?? 9004);
+const GOOGLE_OAUTH_CLIENT_ID = process.env.GOOGLE_OAUTH_CLIENT_ID ?? "";
+const GOOGLE_OAUTH_CLIENT_SECRET = process.env.GOOGLE_OAUTH_CLIENT_SECRET ?? "";
+const GOOGLE_OAUTH_SCOPE = process.env.GOOGLE_OAUTH_SCOPE ?? "";
+const REDIRECT_URI = `http://127.0.0.1:${HTTP_PORT}`;
 const TOKEN_ENDPOINT = "https://oauth2.googleapis.com/token";
 
-if (!CLIENT_ID) throw new Error("CLIENT_ID is required");
-if (!CLIENT_SECRET) throw new Error("CLIENT_SECRET is required");
-if (!SCOPE) throw new Error("SCOPE is required");
+if (!GOOGLE_OAUTH_CLIENT_ID) throw new Error("GOOGLE_OAUTH_CLIENT_ID is required");
+if (!GOOGLE_OAUTH_CLIENT_SECRET) throw new Error("GOOGLE_OAUTH_CLIENT_SECRET is required");
+if (!GOOGLE_OAUTH_SCOPE) throw new Error("GOOGLE_OAUTH_SCOPE is required");
 
 // 用 code 換 token
 async function exchangeCode(code: string): Promise<Record<string, unknown>> {
     const body = new URLSearchParams({
-        client_id: CLIENT_ID,
-        client_secret: CLIENT_SECRET,
+        client_id: GOOGLE_OAUTH_CLIENT_ID,
+        client_secret: GOOGLE_OAUTH_CLIENT_SECRET,
         code,
         grant_type: "authorization_code",
         redirect_uri: REDIRECT_URI,
@@ -84,13 +84,13 @@ async function handler(req: IncomingMessage, res: ServerResponse) {
 
 // 啟動
 const server = createServer(handler);
-server.listen(PORT, () => {
+server.listen(HTTP_PORT, () => {
     // 組認證網址
     const authUrl = new URL("https://accounts.google.com/o/oauth2/v2/auth");
-    authUrl.searchParams.set("scope", SCOPE);
+    authUrl.searchParams.set("scope", GOOGLE_OAUTH_SCOPE);
     authUrl.searchParams.set("response_type", "code");
     authUrl.searchParams.set("redirect_uri", REDIRECT_URI);
-    authUrl.searchParams.set("client_id", CLIENT_ID);
-    console.log(`Listening on port ${PORT}`);
+    authUrl.searchParams.set("client_id", GOOGLE_OAUTH_CLIENT_ID);
+    console.log(`Listening on port ${HTTP_PORT}`);
     console.log(`Auth URL:\n${authUrl.toString()}`);
 });
