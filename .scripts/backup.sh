@@ -8,9 +8,13 @@ set -e
 # Backup nymph-stack data using rustic
 docker exec nymph-rustic rustic backup
 
-# Prune old backups to save space
-docker exec nymph-rustic rustic forget --prune
+# Prune old backups to save space on Mondays
+PRUNE_STATUS=""
+if [ "$(date +%u)" -eq 1 ]; then
+  docker exec nymph-rustic rustic forget --prune
+  PRUNE_STATUS=" and pruned old backups"
+fi
 
 # Notify the user that the backup is complete
-STATUS="Rustic backup completed" \
+STATUS="Rustic backup completed$PRUNE_STATUS" \
   /srv/.scripts/notify.sh
