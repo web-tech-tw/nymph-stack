@@ -13,6 +13,16 @@ keep-daily = 14
 keep-weekly = 5
 
 [[backup.snapshots]]
-label = "riccia"
-sources = ["/srv/riccia"]
+label = "sys-etc"
+sources = ["/srv/sys-etc"]
 git-ignore = true
+
+[[backup.snapshots]]
+label = "sys-srv"
+sources = ["/srv/sys-srv"]
+git-ignore = true
+
+# [[backup.snapshots]]
+# label = "riccia"
+# sources = ["/srv/riccia"]
+# git-ignore = true

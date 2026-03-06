@@ -6,4 +6,6 @@ services:
       context: ./rustic
     volumes:
       - ./config.toml:/etc/rustic/rustic.toml:ro
+      - /etc:/srv/sys-etc:rw
+      - /srv:/srv/sys-srv:rw
     restart: unless-stopped
