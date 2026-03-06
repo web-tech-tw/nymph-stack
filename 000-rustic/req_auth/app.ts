@@ -65,12 +65,12 @@ async function handler(req: IncomingMessage, res: ServerResponse) {
         return;
     }
 
-    console.log("Got code, exchanging for token...");
+    console.info("Got code, exchanging for token...");
 
     try {
         const token = await exchangeCode(code);
         const pretty = JSON.stringify(token, null, 2);
-        console.log("Token response:\n", pretty);
+        console.info("Token response:\n", pretty);
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(pretty);
     } catch (err) {
@@ -91,6 +91,6 @@ server.listen(HTTP_PORT, () => {
     authUrl.searchParams.set("response_type", "code");
     authUrl.searchParams.set("redirect_uri", REDIRECT_URI);
     authUrl.searchParams.set("client_id", GOOGLE_OAUTH_CLIENT_ID);
-    console.log(`Listening on port ${HTTP_PORT}`);
-    console.log(`Auth URL:\n${authUrl.toString()}`);
+    console.info(`Listening on port ${HTTP_PORT}`);
+    console.info(`Auth URL:\n${authUrl.toString()}`);
 });
