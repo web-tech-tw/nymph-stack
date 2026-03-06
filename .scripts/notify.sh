@@ -12,7 +12,7 @@ fi
 NOTIFY() {
     local DATE_NOW="$(date)"
     local STATUS="${STATUS:-"Task has been executed"}"
-    local PAYLOAD="$(jq -n --arg content "$STATUS at $DATE_NOW." '{"content": $content}')"
+    local PAYLOAD="$(jq -n --arg content "$STATUS at \`$DATE_NOW\`." '{"content": $content}')"
     curl -sSf \
         -X POST \
         -H "Content-Type: application/json" \
