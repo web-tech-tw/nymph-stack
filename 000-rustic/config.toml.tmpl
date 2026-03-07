@@ -9,8 +9,11 @@ client_id = "$RUSTIC_GDRIVE_OAUTH_CLIENT_ID"
 client_secret = "$RUSTIC_GDRIVE_OAUTH_CLIENT_SECRET"
 
 [forget]
+keep-hourly = 20
 keep-daily = 14
-keep-weekly = 5
+keep-weekly = 8
+keep-monthly = 24
+keep-yearly = 10
 
 [[backup.snapshots]]
 label = "sys-user"
