@@ -13,6 +13,16 @@ keep-daily = 14
 keep-weekly = 5
 
 [[backup.snapshots]]
+label = "sys-user"
+sources = ["/srv/sys-user"]
+git-ignore = true
+
+[[backup.snapshots]]
+label = "sys-root"
+sources = ["/srv/sys-root"]
+git-ignore = true
+
+[[backup.snapshots]]
 label = "sys-etc"
 sources = ["/srv/sys-etc"]
 git-ignore = true
@@ -21,8 +31,3 @@ git-ignore = true
 label = "sys-srv"
 sources = ["/srv/sys-srv"]
 git-ignore = true
-
-# [[backup.snapshots]]
-# label = "riccia"
-# sources = ["/srv/riccia"]
-# git-ignore = true
