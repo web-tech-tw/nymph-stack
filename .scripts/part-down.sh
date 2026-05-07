@@ -3,6 +3,9 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Define this script name
+export NYMPH_SCRIPT_NAME="part-down"
+
 # Check directory variables
 if [ ! -n "$1" ]; then
 	exit 1

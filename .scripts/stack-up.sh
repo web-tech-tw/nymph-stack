@@ -3,6 +3,9 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Define this script name
+export NYMPH_SCRIPT_NAME="stack-up"
+
 # Load environment variables from webhook if available
 if [ -n "$1" ]; then
   eval "$(echo "$1" | jq -r 'to_entries[] | "export \(.key)=\(.value | @sh)"')"
