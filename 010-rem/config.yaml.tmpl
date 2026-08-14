@@ -1,0 +1,41 @@
+discord:
+  token: "${REM_DISCORD_TOKEN}"
+  mention_only: true
+  allow_dms: false
+  allowed_channel_ids: []
+
+openai:
+  chat:
+    model: "@noire/mistral-small-latest"
+    api_key: "${REM_OPENAI_API_KEY}"
+    base_url: "https://api.portkey.ai/v1"
+    extra_body:
+      thinking:
+        type: "enabled"
+      reasoning_effort: "medium"
+  vision:
+    enabled: true
+    model: "@noire/mistral-medium-latest"
+    api_key: "${REM_OPENAI_API_KEY}"
+    base_url: "https://api.portkey.ai/v1"
+  guardrail:
+    enabled: true
+    model: "@noire/mistral-medium-latest"
+    api_key: "${REM_OPENAI_API_KEY}"
+    base_url: "https://api.portkey.ai/v1"
+    strict_mode: false
+    risk_threshold: "high"
+    interactive_approval: true
+    approval_timeout: 60
+    require_approval_level: "high"
+
+memory:
+  history_turns: 12
+  limit: 24
+  db_path: "/data/memory.json"
+
+scheduler:
+  db_path: "/data/scheduler.json"
+
+system:
+  default_timezone: "Asia/Taipei"

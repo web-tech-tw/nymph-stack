@@ -1,0 +1,19 @@
+version: "3.5"
+services:
+  nymph:
+    build:
+      context: ./rem
+      args:
+        NOIRE_FILENAME_SUFFIX: ${NOIRE_FILENAME_SUFFIX}
+        NOIRE_PROMPTS_GIT_URL: ${NOIRE_PROMPTS_GIT_URL}
+    networks:
+      - nymph-stack
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - ./data:/data:rw
+    restart: unless-stopped
+
+networks:
+  nymph-stack:
+    external:
+      name: nymph-stack

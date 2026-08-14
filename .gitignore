@@ -29,5 +29,6 @@ Thumbs.db
 config.*
 !config.*.tmpl
 .env.*
+!.env.tmpl
 keypair_*
 autogen_*
