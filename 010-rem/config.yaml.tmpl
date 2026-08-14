@@ -52,6 +52,6 @@ mcp_servers:
   - name: "shell"
     transport: "stdio"
     command: "/usr/local/bin/uvx"
-    args: ["mcp-shell-server"]
+    args: ["--quiet", "mcp-shell-server"]
     env:
       ALLOW_COMMANDS: "docker"
