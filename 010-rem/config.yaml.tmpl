@@ -51,7 +51,7 @@ system:
 mcp_servers:
   - name: "shell"
     transport: "stdio"
-    command: "uvx"
+    command: "/usr/local/bin/uvx"
     args: ["mcp-shell-server"]
     env:
       ALLOW_COMMANDS: "docker"
