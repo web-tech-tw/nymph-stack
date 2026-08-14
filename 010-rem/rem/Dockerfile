@@ -17,5 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     git clone "${NOIRE_PROMPTS_GIT_URL}" /tmp/factory && \
     mv /tmp/factory/prompts /app/prompts && \
     rm -rf /tmp/factory
+COPY --from=docker:dind \
+    /usr/local/bin/docker /usr/local/bin/
 
 CMD ["uv", "run", "noire.pex"]

@@ -39,3 +39,11 @@ scheduler:
 
 system:
   default_timezone: "Asia/Taipei"
+
+mcp_servers:
+  - name: "shell"
+    transport: "stdio"
+    command: "uvx"
+    args: ["mcp-shell-server"]
+    env:
+      ALLOW_COMMANDS: "docker"
