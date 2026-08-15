@@ -58,3 +58,5 @@ mcp_servers:
   - name: "firecrawl"
     transport: "http"
     url: "https://mcp.firecrawl.dev/v2/mcp"
+    headers:
+      Authorization: "Bearer ${REM_FIRECRAWL_TOKEN}"
