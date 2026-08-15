@@ -52,9 +52,15 @@ mcp_servers:
   - name: "shell"
     transport: "stdio"
     command: "/usr/local/bin/uvx"
-    args: ["--quiet", "mcp-shell-server"]
+    args: ["--quiet", "mcp-shell-server@1.1.8"]
     env:
       ALLOW_COMMANDS: "docker,git,ls,pwd,grep,find,cat,tail,head,sed,awk,sort,uniq,wc,xargs,tee,tr,cp,mv,rm,mkdir,touch,echo,uname,df,du,whoami,hostname,curl,wget,ssh,scp,rsync"
+  - name: "discord"
+    transport: "stdio"
+    command: "/usr/local/bin/npx"
+    args: ["-y", "@pasympa/discord-mcp@2.1.1"]
+    env:
+      DISCORD_TOKEN: "${REM_DISCORD_TOKEN}"
   - name: "firecrawl"
     transport: "http"
     url: "https://mcp.firecrawl.dev/v2/mcp"
