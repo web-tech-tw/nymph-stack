@@ -15,3 +15,4 @@ chown root:root "config.yaml"
 chmod 0644 "config.yaml"
 
 chown -R 3000:3000 "data/"
+chmod -R 0755 "data/"
