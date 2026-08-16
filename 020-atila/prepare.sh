@@ -10,3 +10,5 @@ fi
 envsubst \
     <"config.yaml.tmpl" \
     >"config.yaml"
+
+chown 3000:3000 "./config.yaml"
