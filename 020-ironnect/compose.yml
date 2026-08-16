@@ -1,6 +1,6 @@
 version: "3"
 services:
-  proxy:
+  ironnect:
     image: ghcr.io/ai-tech-tw/ironnect:main
     environment:
       SCRIPT_NAME: "/recv/openai"
