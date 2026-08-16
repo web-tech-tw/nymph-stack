@@ -13,15 +13,15 @@ bridgeProvider:
   openai:
     enable: false
     # https://github.com/ai-tech-tw/openai
-    baseUrl: "https://web-tech-tw.eu.org/openai/v1"
-    apiKey: "YourGeminiApiKey"
-    chatModel: "gpt-3.5-turbo"
+    baseUrl: "https://web-tech.tw/recv/openai/v1"
+    apiKey: "${ATILA_OPENAI_API_KEY}"
+    chatModel: "llama3.1-8b"
 
   # LINE
   line:
     enable: false
-    channelAccessToken: "YourChannelAccessToken"
-    channelSecret: "YourChannelSecret"
+    channelAccessToken: "${ATILA_LINE_CHANNEL_ACCESS_TOKEN}"
+    channelSecret: "${ATILA_LINE_CHANNEL_SECRET}"
     useNotify: false
     notifyClientId: "YourClientID"
     notifyClientSecret: "YourClientSecret"
@@ -30,15 +30,15 @@ bridgeProvider:
   matrix:
     enable: false
     homeserverUrl: "https://matrix.org"
-    accessToken: "YourSecretAccessToken"
+    accessToken: "${ATILA_MATRIX_ACCESS_TOKEN}"
 
   # Discord
   discord:
     enable: false
-    appId: "YourAppId"
-    botToken: "YourBotToken"
+    appId: "1538215024512995429"
+    botToken: "${ATILA_DISCORD_BOT_TOKEN}"
 
   # Telegram
   telegram:
     enable: false
-    botToken: "YourBotToken"
+    botToken: "${ATILA_TELEGRAM_BOT_TOKEN}"
