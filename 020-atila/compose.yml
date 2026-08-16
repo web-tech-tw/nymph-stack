@@ -6,6 +6,7 @@ services:
       - nymph-stack
     volumes:
       - "./config.yaml:/workplace/config.yaml:ro"
+      - "./data:/workplace/data:rw"
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
