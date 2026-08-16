@@ -9,7 +9,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
-      - "traefik.http.routers.atila.rule=PathPrefix(`/recv/tila`)"
+      - "traefik.http.routers.atila.rule=PathPrefix(`/recv/atila`)"
       - "traefik.http.services.atila.loadbalancer.server.port=3000"
       - "traefik.http.services.atila.loadbalancer.healthcheck.path=/heart"
       - "traefik.http.services.atila.loadbalancer.healthcheck.interval=30s"
