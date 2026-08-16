@@ -14,7 +14,7 @@ services:
       - "traefik.http.services.atila.loadbalancer.healthcheck.path=/heart"
       - "traefik.http.services.atila.loadbalancer.healthcheck.interval=30s"
       - "traefik.http.routers.atila.middlewares=atila-strip-prefix"
-      - "traefik.http.middlewares.atila-strip-prefix.stripprefix.prefixes=/atila"
+      - "traefik.http.middlewares.atila-strip-prefix.stripprefix.prefixes=/recv/atila"
     restart: unless-stopped
 
 networks:
