@@ -11,4 +11,7 @@ envsubst \
     <"config.yaml.tmpl" \
     >"config.yaml"
 
-chown 3000:3000 "./config.yaml"
+chown root:root "config.yaml"
+chmod 0644 "config.yaml"
+
+chown -R 3000:3000 "data/"
