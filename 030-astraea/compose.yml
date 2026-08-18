@@ -1,0 +1,36 @@
+version: "3.5"
+services:
+  astraea:
+    image: ghcr.io/web-tech-tw/nymph:rolling
+    environment:
+      APP_CONFIGURED: "1"
+    env_file:
+      - config.env
+    networks:
+      - nymph-stack
+    volumes:
+      - ./prompts.json:/workplace/prompts.json:ro
+      - ./relay.json:/workplace/relay.json:ro
+      - ./roles.json:/workplace/roles.json:ro
+      - ./data:/workplace/data:rw
+    labels:
+      - "traefik.enable=true"
+      - "traefik.group=nymph-stack"
+      - "traefik.http.routers.astraea.rule=PathPrefix(`/astraea`)"
+      - "traefik.http.services.astraea.loadbalancer.server.port=3000"
+      - "traefik.http.services.astraea.loadbalancer.healthcheck.path=/robots.txt"
+      - "traefik.http.services.astraea.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.routers.astraea.middlewares=astraea-strip-prefix"
+      - "traefik.http.middlewares.astraea-strip-prefix.stripprefix.prefixes=/astraea"
+    restart: unless-stopped
+
+  redis:
+    image: redis:latest
+    networks:
+      - nymph-stack
+    restart: unless-stopped
+
+networks:
+  nymph-stack:
+    external:
+      name: nymph-stack
