@@ -13,3 +13,6 @@ fi
 envsubst \
     <"config.yaml.tmpl" \
     >"config.yaml"
+
+chown root:root "config.yaml"
+chmod 0644 "config.yaml"
