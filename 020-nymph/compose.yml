@@ -8,11 +8,6 @@ services:
       - config.env
     networks:
       - nymph-stack
-    volumes:
-      - ./prompts.json:/workplace/prompts.json:ro
-      - ./relay.json:/workplace/relay.json:ro
-      - ./roles.json:/workplace/roles.json:ro
-      - ./data:/workplace/data:rw
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
