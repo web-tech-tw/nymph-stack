@@ -1,5 +1,1 @@
-data/
-data.old/
-prompts.json
-relay.json
-roles.json
+mcp.toml

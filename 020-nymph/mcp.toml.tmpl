@@ -1,0 +1,11 @@
+# Model Context Protocol (MCP) Server Configuration
+
+# HTTP / SSE Server - Fire Crawl
+[mcp_servers.firecrawl]
+enabled = true
+required = false
+max_retries = 2
+retry_delay = 1.5
+type = "http"
+url = "https://mcp.firecrawl.dev/v2/mcp"
+headers = { Authorization = "Bearer $ASTRAEA_MCP_FIRECRAWL_TOKEN" }

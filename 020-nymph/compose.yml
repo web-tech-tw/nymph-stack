@@ -8,6 +8,8 @@ services:
       - config.env
     networks:
       - nymph-stack
+    volumes:
+      - ./mcp.toml:/app/mcp.toml:ro
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
