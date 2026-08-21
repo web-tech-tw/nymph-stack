@@ -16,3 +16,5 @@ networks:
   nymph-stack:
     name: nymph-stack
     driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: "1450"

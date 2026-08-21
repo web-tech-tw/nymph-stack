@@ -44,6 +44,8 @@ networks:
   sara:
     name: sara
     driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: "1450"
   nymph-stack:
     external:
       name: nymph-stack
