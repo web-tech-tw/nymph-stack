@@ -20,3 +20,5 @@ envsubst \
 
 chown root:root "req_auth/.env"
 chmod 0644 "req_auth/.env"
+
+docker-compose restart

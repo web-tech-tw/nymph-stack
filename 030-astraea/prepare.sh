@@ -13,3 +13,5 @@ envsubst \
 
 chown root:root "mcp.toml"
 chmod 0644 "mcp.toml"
+
+docker-compose restart

@@ -13,3 +13,5 @@ envsubst \
 
 chown root:root "config.local.py"
 chmod 0644 "config.local.py"
+
+docker-compose restart

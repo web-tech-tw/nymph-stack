@@ -16,3 +16,5 @@ envsubst \
 
 chown root:root "config.yaml"
 chmod 0644 "config.yaml"
+
+docker-compose restart
