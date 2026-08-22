@@ -9,3 +9,9 @@ retry_delay = 1.5
 type = "http"
 url = "https://mcp.firecrawl.dev/v2/mcp"
 headers = { Authorization = "Bearer $ASTRAEA_MCP_FIRECRAWL_TOKEN" }
+allowed_tools = [
+  "firecrawl_scrape",
+  "firecrawl_search",
+  "firecrawl_map",
+  "firecrawl_developer_search"
+]
