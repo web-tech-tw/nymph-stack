@@ -9,7 +9,7 @@ services:
     networks:
       - nymph-stack
     volumes:
-      - ../010-sara/keypair_public.pem:/workplace/keypair_public.pem:ro
+      - ../010-sara/keypair_public.pem:/app/keypair_public.pem:ro
       - ./mcp.toml:/app/mcp.toml:ro
     labels:
       - "traefik.enable=true"
