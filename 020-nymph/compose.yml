@@ -7,6 +7,7 @@ services:
     env_file:
       - config.env
     networks:
+      - sara
       - nymph-stack
     volumes:
       - ../010-sara/keypair_public.pem:/app/keypair_public.pem:ro
@@ -29,6 +30,9 @@ services:
     restart: unless-stopped
 
 networks:
+  sara:
+    external:
+      name: sara
   nymph-stack:
     external:
       name: nymph-stack
