@@ -15,3 +15,10 @@ allowed_tools = [
   "firecrawl_map",
   "firecrawl_developer_search"
 ]
+
+# HTTP / SSE Server - Twinkle Hub
+[mcp_servers.twinkleai]
+enabled = true
+type = "http"
+url = "https://api.twinkleai.tw/mcp/"
+headers = { Authorization = "Bearer $ASTRAEA_MCP_TWINKLE_HUB_TOKEN" }
