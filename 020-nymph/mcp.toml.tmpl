@@ -5,7 +5,7 @@
 enabled = true
 type = "http"
 url = "https://mcp.firecrawl.dev/v2/mcp"
-headers = { Authorization = "Bearer $ASTRAEA_MCP_FIRECRAWL_TOKEN" }
+headers = { Authorization = "Bearer $NYMPH_MCP_FIRECRAWL_TOKEN" }
 allowed_tools = [
   "firecrawl_scrape",
   "firecrawl_search",
@@ -18,4 +18,11 @@ allowed_tools = [
 enabled = true
 type = "http"
 url = "https://api.twinkleai.tw/mcp/"
-headers = { Authorization = "Bearer $ASTRAEA_MCP_TWINKLE_HUB_TOKEN" }
+headers = { Authorization = "Bearer $NYMPH_MCP_TWINKLE_HUB_TOKEN" }
+
+# HTTP / SSE Server - Context7
+[mcp_servers.context7]
+enabled = true
+type = "http"
+url = "https://mcp.context7.com/mcp"
+headers = { Authorization = "Bearer $NYMPH_MCP_CONTEXT_7_TOKEN" }
