@@ -3,15 +3,19 @@
 # HTTP / SSE Server - Fire Crawl
 [mcp_servers.firecrawl]
 enabled = true
-required = false
-max_retries = 2
-retry_delay = 1.5
 type = "http"
 url = "https://mcp.firecrawl.dev/v2/mcp"
-headers = { Authorization = "Bearer $NYMPH_MCP_FIRECRAWL_TOKEN" }
+headers = { Authorization = "Bearer $ASTRAEA_MCP_FIRECRAWL_TOKEN" }
 allowed_tools = [
   "firecrawl_scrape",
   "firecrawl_search",
   "firecrawl_map",
   "firecrawl_developer_search"
 ]
+
+# HTTP / SSE Server - Twinkle Hub
+[mcp_servers.twinkleai]
+enabled = true
+type = "http"
+url = "https://api.twinkleai.tw/mcp/"
+headers = { Authorization = "Bearer $ASTRAEA_MCP_TWINKLE_HUB_TOKEN" }
