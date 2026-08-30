@@ -10,6 +10,7 @@ services:
       - sara
       - nymph-stack
     volumes:
+      - ./received:/app/received:rw
       - ../010-sara/keypair_public.pem:/app/keypair_public.pem:ro
       - ./mcp.toml:/app/mcp.toml:ro
     labels:
