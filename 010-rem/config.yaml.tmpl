@@ -5,7 +5,7 @@ discord:
   allow_dms: false
   allowed_channel_ids: []
   allowed_role_ids: ["874647154864582726"]
-  allowed_strict: false
+  allowed_strict: true
   presence:
     status: "idle"
     activities:
@@ -28,7 +28,7 @@ openai:
     base_url: "https://api.portkey.ai/v1"
   guardrail:
     enabled: true
-    model: "@noire/mistral-small-latest"
+    model: "@noire/mistral-medium-latest"
     api_key: "${REM_OPENAI_API_KEY}"
     base_url: "https://api.portkey.ai/v1"
     strict_mode: false
