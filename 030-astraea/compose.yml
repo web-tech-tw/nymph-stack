@@ -23,12 +23,6 @@ services:
       - "traefik.http.middlewares.astraea-strip-prefix.stripprefix.prefixes=/astraea"
     restart: unless-stopped
 
-  redis:
-    image: redis:latest
-    networks:
-      - nymph-stack
-    restart: unless-stopped
-
 networks:
   sara:
     external:

@@ -23,12 +23,6 @@ services:
       - "traefik.http.middlewares.nymph-strip-prefix.stripprefix.prefixes=/nymph"
     restart: unless-stopped
 
-  redis:
-    image: redis:latest
-    networks:
-      - nymph-stack
-    restart: unless-stopped
-
 networks:
   sara:
     external:
