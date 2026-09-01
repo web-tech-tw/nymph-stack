@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  liscia:
+    image: ghcr.io/web-tech-tw/liscia:main
+    environment:
+      APP_CONFIGURED: "1"
+    env_file:
+      - config.env
+    networks:
+      - nymph-stack
+    volumes:
+      - ./translation.yaml:/app/translation.yaml:ro
+    restart: unless-stopped
+
+networks:
+  nymph-stack:
+    external:
+      name: nymph-stack

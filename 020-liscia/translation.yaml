@@ -1,0 +1,12 @@
+default:
+  locales:
+    - en
+    - zh-tw
+
+guild:
+  "874338174200074300":
+    channels:
+      - "1463527827843448933":
+          locales:
+            - en
+            - zh-tw
