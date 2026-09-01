@@ -8,5 +8,25 @@ guild:
     channels:
       - "1463527827843448933":
           locales:
-            - en
-            - zh-tw
+            - en # English
+            - zh-tw # Traditional Chinese
+      - "1543794866738438255":
+          locales:
+            - ja # Japanese
+            - zh-tw # Traditional Chinese
+      - "1543794867988201484":
+          locales:
+            - fr # French
+            - zh-tw # Traditional Chinese
+      - "1543794868529266758":
+          locales:
+            - es # Spanish
+            - zh-tw # Traditional Chinese
+      - "1543794870416834622":
+          locales:
+            - de # German
+            - zh-tw # Traditional Chinese
+      - "1543794872798937188":
+          locales:
+            - ko # Korean
+            - zh-tw # Traditional Chinese
