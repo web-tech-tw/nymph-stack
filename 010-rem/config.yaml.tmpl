@@ -14,23 +14,23 @@ discord:
 
 openai:
   chat:
-    model: "@noire/zai-glm-5-2"
+    model: "zai-glm-5-2"
     api_key: "${REM_OPENAI_API_KEY}"
-    base_url: "https://api.portkey.ai/v1"
+    base_url: "https://api.mistral.ai/v1"
     extra_body:
       thinking:
         type: "enabled"
       reasoning_effort: "medium"
   vision:
     enabled: true
-    model: "@noire/mistral-small-latest"
+    model: "mistral-small-latest"
     api_key: "${REM_OPENAI_API_KEY}"
-    base_url: "https://api.portkey.ai/v1"
+    base_url: "https://api.mistral.ai/v1"
   guardrail:
     enabled: true
-    model: "@noire/mistral-medium-latest"
+    model: "mistral-medium-latest"
     api_key: "${REM_OPENAI_API_KEY}"
-    base_url: "https://api.portkey.ai/v1"
+    base_url: "https://api.mistral.ai/v1"
     strict_mode: false
     risk_threshold: "high"
     interactive_approval: true
