@@ -15,19 +15,19 @@ discord:
 mistral:
   chat:
     model: "zai-glm-5-2"
-    api_key: "${REM_OPENAI_API_KEY}"
+    api_key: "${REM_MISTRAL_API_KEY}"
     base_url: "https://api.mistral.ai"
     extra_body:
       reasoning_effort: "medium"
   vision:
     enabled: true
     model: "mistral-small-latest"
-    api_key: "${REM_OPENAI_API_KEY}"
+    api_key: "${REM_MISTRAL_API_KEY}"
     base_url: "https://api.mistral.ai"
   guardrail:
     enabled: true
     model: "mistral-medium-latest"
-    api_key: "${REM_OPENAI_API_KEY}"
+    api_key: "${REM_MISTRAL_API_KEY}"
     base_url: "https://api.mistral.ai"
     strict_mode: false
     risk_threshold: "high"
