@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  archiver:
+    image: ghcr.io/web-tech-tw/archiver:main
+    environment:
+      APP_CONFIGURED: "1"
+    env_file:
+      - config.env
+    networks:
+      - nymph-stack
+    volumes:
+      - ./mapping.yaml:/app/mapping.yaml:ro
+    restart: unless-stopped
+
+networks:
+  nymph-stack:
+    external:
+      name: nymph-stack
