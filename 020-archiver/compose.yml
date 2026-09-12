@@ -9,7 +9,7 @@ services:
     networks:
       - nymph-stack
     volumes:
-      - ./mapping.yaml:/app/mapping.yaml:ro
+      - ./mapping.toml:/app/mapping.toml:ro
     restart: unless-stopped
 
 networks:
