@@ -9,6 +9,7 @@ services:
     networks:
       - nymph-stack
     volumes:
+      - ./received:/app/received:rw
       - ./mapping.toml:/app/mapping.toml:ro
     restart: unless-stopped
 
