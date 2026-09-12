@@ -9,7 +9,7 @@ services:
     networks:
       - nymph-stack
     volumes:
-      - ./translation.yaml:/app/translation.yaml:ro
+      - ./translation.toml:/app/translation.toml:ro
     restart: unless-stopped
 
 networks:
