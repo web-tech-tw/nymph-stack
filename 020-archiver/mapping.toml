@@ -1,6 +1,10 @@
+# 頻道 ID 與 Collection 名稱對應設定
+# message_collection：聊天訊息歸檔的 Collection（必填）
+# knowledge_collection：知識文件（.md/.pdf → Nymph knowledge ingest）的 Collection；存在即啟用知識進料
+
 [mappings]
-"975639402900496414" = "archive-vuejs-plus"
-"1551628095465979968" = "archive-line-plus"
-"1329005320004960276" = "archive-php-plus"
-"879572817232941107" = "archive-ai-plus"
-"1551628172209033216" = "archive-web-tech"
+"975639402900496414" = { message_collection = "archive-vuejs-plus", knowledge_collection = "knowledge-vuejs-plus" }
+"1551628095465979968" = { message_collection = "archive-line-plus" }
+"1329005320004960276" = { message_collection = "archive-php-plus" }
+"879572817232941107" = { message_collection = "archive-ai-plus" }
+"1551628172209033216" = { message_collection = "archive-web-tech" }
