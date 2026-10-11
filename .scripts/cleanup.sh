@@ -6,6 +6,7 @@
 set -e
 
 # Clean up unused Docker resources
+docker builder prune -af --filter "until=2h"
 docker image prune -af --filter "until=2h"
 
 # Notify the user that the cleanup is complete
