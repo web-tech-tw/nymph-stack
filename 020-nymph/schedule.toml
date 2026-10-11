@@ -1,0 +1,10 @@
+# Discord Scheduled Prompts Configuration
+# Copy this file to `schedule.toml` to configure scheduled prompts.
+# Discord-only. Jobs can ONLY be configured here; there is no tool or command to change them.
+
+[[prompts]]
+enabled = true
+name = "technology-news"
+time = "0 12 * * *"
+channel_id = "1214021587964010497"
+prompt = "向頻道成員道午安，並簡短分享一則今日的科技新知。"
