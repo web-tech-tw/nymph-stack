@@ -1,8 +1,7 @@
 version: "3.5"
 services:
   wings:
-    build:
-      context: autogen_wings
+    image: ghcr.io/web-tech-tw/wings:main
     environment:
       NUXT_APP_BASE_URL: "/wings"
     networks:
