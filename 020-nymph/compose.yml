@@ -13,6 +13,7 @@ services:
       - ./received:/app/received:rw
       - ../010-sara/keypair_public.pem:/app/keypair_public.pem:ro
       - ./mcp.toml:/app/mcp.toml:ro
+      - ./schedule.toml:/app/schedule.toml:ro
     labels:
       - "traefik.enable=true"
       - "traefik.group=nymph-stack"
