@@ -4,6 +4,8 @@ services:
     container_name: nymph-rustic
     build:
       context: rustic
+    environment:
+      TZ: "Asia/Taipei"
     volumes:
       - ./config.toml:/etc/rustic/rustic.toml:ro
       - /home/user:/srv/sys-user:rw

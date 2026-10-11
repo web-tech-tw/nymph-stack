@@ -3,6 +3,7 @@ services:
   liscia:
     image: ghcr.io/web-tech-tw/liscia:main
     environment:
+      TZ: "Asia/Taipei"
       APP_CONFIGURED: "1"
     env_file:
       - config.env

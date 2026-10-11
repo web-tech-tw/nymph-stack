@@ -2,6 +2,8 @@ version: "3.5"
 services:
   atila:
     image: ghcr.io/web-tech-tw/arona:main
+    environment:
+      TZ: "Asia/Taipei"
     networks:
       - nymph-stack
     volumes:

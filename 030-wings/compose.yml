@@ -3,6 +3,7 @@ services:
   wings:
     image: ghcr.io/web-tech-tw/wings:main
     environment:
+      TZ: "Asia/Taipei"
       NUXT_APP_BASE_URL: "/wings"
     networks:
       - nymph-stack

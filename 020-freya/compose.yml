@@ -2,6 +2,8 @@ version: "3.5"
 services:
   inte:
     image: ghcr.io/web-tech-tw/freya:main
+    environment:
+      TZ: "Asia/Taipei"
     networks:
       - nymph-stack
     labels:
@@ -18,6 +20,7 @@ services:
   recv:
     image: ghcr.io/web-tech-tw/freya.recv:main
     environment:
+      TZ: "Asia/Taipei"
       APP_CONFIGURED: "1"
     env_file:
       - config.env

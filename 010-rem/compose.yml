@@ -6,6 +6,8 @@ services:
       args:
         NOIRE_FILENAME_SUFFIX: ${NOIRE_FILENAME_SUFFIX}
         NOIRE_PROMPTS_GIT_URL: ${NOIRE_PROMPTS_GIT_URL}
+    environment:
+      TZ: "Asia/Taipei"
     networks:
       - nymph-stack
     volumes:

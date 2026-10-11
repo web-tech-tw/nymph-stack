@@ -2,6 +2,8 @@ version: "3.5"
 services:
   traefik:
     image: traefik:v3
+    environment:
+      TZ: "Asia/Taipei"
     networks:
       - nymph-stack
     ports:

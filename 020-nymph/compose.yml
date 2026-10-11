@@ -3,6 +3,7 @@ services:
   nymph:
     image: ghcr.io/web-tech-tw/nymph:main
     environment:
+      TZ: "Asia/Taipei"
       APP_CONFIGURED: "1"
     env_file:
       - config.env

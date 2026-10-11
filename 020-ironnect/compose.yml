@@ -3,6 +3,7 @@ services:
   ironnect:
     image: ghcr.io/ai-tech-tw/ironnect:main
     environment:
+      TZ: "Asia/Taipei"
       SCRIPT_NAME: "/recv/openai"
     networks:
       - nymph-stack

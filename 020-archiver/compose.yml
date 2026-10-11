@@ -3,6 +3,7 @@ services:
   archiver:
     image: ghcr.io/web-tech-tw/archiver:main
     environment:
+      TZ: "Asia/Taipei"
       APP_CONFIGURED: "1"
     env_file:
       - config.env

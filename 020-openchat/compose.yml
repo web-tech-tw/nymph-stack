@@ -3,6 +3,7 @@ services:
   web:
     image: ghcr.io/web-tech-tw/openchat:main
     environment:
+      TZ: "Asia/Taipei"
       NUXT_APP_BASE_URL: "/openchat"
     networks:
       - nymph-stack
@@ -18,6 +19,7 @@ services:
   recv:
     image: ghcr.io/web-tech-tw/openchat-join:main
     environment:
+      TZ: "Asia/Taipei"
       APP_CONFIGURED: "1"
     env_file:
       - config.env
