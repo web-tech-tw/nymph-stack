@@ -3,7 +3,7 @@ services:
   rustic:
     container_name: nymph-rustic
     build:
-      context: ./rustic
+      context: rustic
     volumes:
       - ./config.toml:/etc/rustic/rustic.toml:ro
       - /home/user:/srv/sys-user:rw
