@@ -1,8 +1,7 @@
 version: "3.5"
 services:
   traefik:
-    build:
-      context: traefik
+    image: traefik:v3
     networks:
       - nymph-stack
     ports:
@@ -10,6 +9,7 @@ services:
       - 127.0.0.1:13006:13006
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
     restart: unless-stopped
 
 networks:
