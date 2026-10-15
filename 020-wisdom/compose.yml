@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+  wisdom:
+    container_name: wisdom
+    image: ghcr.io/web-tech-tw/wisdom:main
+    command: sleep infinity
+    environment:
+      TZ: "Asia/Taipei"
+      APP_CONFIGURED: "1"
+    env_file:
+      - config.env
+    restart: unless-stopped

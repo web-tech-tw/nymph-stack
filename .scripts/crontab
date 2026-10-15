@@ -1,0 +1,2 @@
+0 */2 * * * /srv/.scripts/backup.sh >/dev/null 2>&1
+0 3 * * * /srv/.scripts/cleanup.sh >/dev/null 2>&1

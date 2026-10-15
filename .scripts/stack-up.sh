@@ -14,6 +14,11 @@ fi
 # Pull the latest changes
 git pull origin main
 
+# Install crontab
+if [ -f "/srv/.scripts/crontab" ]; then
+  crontab /srv/.scripts/crontab
+fi
+
 # Iterate over each directory in the current directory
 for dir in */; do
   # Skip certain directories
