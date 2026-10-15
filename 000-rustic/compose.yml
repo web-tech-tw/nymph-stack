@@ -2,6 +2,7 @@ version: "3.5"
 services:
   rustic:
     container_name: nymph-rustic
+    hostname: nymph-rustic
     build:
       context: rustic
     environment:
